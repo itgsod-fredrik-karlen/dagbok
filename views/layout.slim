@@ -1,0 +1,27 @@
+doctype html
+
+html
+  head
+    link rel="stylesheet" type="text/css" href="dagbok.css"
+    meta charset='utf-8'
+    title Dagbok
+  body
+    a href="/"
+      h1 Dagbok
+    nav#top
+      - if @user
+        form#logout action="/logout" method="post"
+          button type="submit" Logga Ut (#{@user.username})
+        form#removeusr action="/removeusr" method="post"
+          button type="submit" Redera användare
+      - else
+        form#login action="/login" method="post"
+          input type="text" name="username" placeholder="Username"
+          input type="password" name="password" placeholder="Password"
+          button type="submit" Logga In
+        /#register
+        /  form action="/register" method="post"
+        /    input type="text" name="username" placeholder="Username"
+        /    input type="password" name="password" placeholder="Password"
+        /    button type="submit" Skapa Användare
+    == yield

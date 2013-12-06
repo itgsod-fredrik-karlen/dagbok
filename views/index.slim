@@ -1,0 +1,9 @@
+p Welcome to our Dagbok
+hr
+-@posts.each do |post|
+  a href="post/#{post.id}"
+    #post
+      h3 style="float: left;" = post.title
+      h6 style="padding-top: 20px;" = post.date.strftime('%F')
+      br
+  hr
