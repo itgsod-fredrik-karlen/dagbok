@@ -1,5 +1,5 @@
 form
   fieldset
     legend = @post.title
-    h6 = @post.date.strftime('%F')
+    h6 = @post.created_at.strftime('%F')
     p = @post.text

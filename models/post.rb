@@ -3,7 +3,7 @@ class Post
 
   property :id, Serial
   property :title, String
-  property :date, DateTime
+  property :created_at, DateTime
   property :text, Text
 
   belongs_to :user

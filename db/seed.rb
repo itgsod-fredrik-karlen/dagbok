@@ -1,6 +1,7 @@
 posts = [
-    {title: 'initial', date: Time.now, text: 'I will never figure out something to write here'},
-    {title: 'second', date: Time.now, text: 'I will still have not figured out something to write here'}
+    {title: 'initial', text: 'I will never figure out something to write here', user_id: 1},
+    {title: 'second', text: 'I still have not figured out something to write here', user_id: 2},
+    {title: 'u2', text: "And i stiiiiiil haven't fouuuuuund what i'm looookiiing foooooor.", user_id: 1}
 ]
 
 users = [
@@ -8,13 +9,16 @@ users = [
     {username: "nisse99", password: "tomte"}
 ]
 
-
-posts.each do |post|
-  Post.create(title: post[:title],
-              date: post[:date],
-              text: post[:text])
-end
-
 users.each do |user|
   User.create(username: user[:username], password: user[:password])
 end
+
+posts.each do |post|
+  user = User.get(post[:user_id])
+  Post.create(title: post[:title],
+                   text: post[:text],
+                   user: user)
+
+
+end
+
