@@ -7,8 +7,9 @@ class Dagbok < Sinatra::Base
   get '/' do
     @user = User.get(session[:user].to_i)
     p @user
-    if session[:order]
-
+    if session[:query]
+      @posts = Post.all(:user => @user) & Post.all(:title.like => session[:query])
+      session.delete(:query)
     else
       @posts = Post.all(:user => @user)
     end
@@ -49,7 +50,7 @@ class Dagbok < Sinatra::Base
   end
 
   post '/search' do
-    session[:order] = 1
+    session[:query] = params['search']
     redirect '/'
   end
 

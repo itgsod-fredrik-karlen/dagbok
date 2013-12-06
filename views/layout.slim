@@ -3,6 +3,8 @@ doctype html
 html
   head
     link rel="stylesheet" type="text/css" href="dagbok.css"
+    link rel="stylesheet" type="text/css" href="bootstrap.css"
+    link rel="stylesheet" type="text/css" href="bootstrap-responsive.css"
     meta charset='utf-8'
     title Dagbok
   body
@@ -11,14 +13,12 @@ html
     nav#top
       - if @user
         form#logout action="/logout" method="post"
-          button type="submit" Logga Ut (#{@user.username})
-        form#removeusr action="/removeusr" method="post"
-          button type="submit" Redera användare
+          button class="btn btn-success" type="submit" Logga Ut (#{@user.username})
       - else
         form#login action="/login" method="post"
-          input type="text" name="username" placeholder="Username"
-          input type="password" name="password" placeholder="Password"
-          button type="submit" Logga In
+          input.form-control type="text" name="username" placeholder="Username"
+          input.form-control type="password" name="password" placeholder="Password"
+          button class="btn btn-success"  type="submit" Logga In
         /#register
         /  form action="/register" method="post"
         /    input type="text" name="username" placeholder="Username"

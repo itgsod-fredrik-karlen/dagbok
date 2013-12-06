@@ -9,9 +9,9 @@ hr
   hr
 -if session[:user]
   form action="/search" method="post"
-    input type="text" name="search" placeholder="Search"
-    button type="submit" Search
+    input.form-control type="text" name="search" placeholder="Search"
+    button class="btn btn-info"  type="submit" Search
   form action="/create" method="post"
-    input type="text" name="title" placeholder="title"
-    textarea name="text" rows="6" cols="50" placeholder="kära dagbok..."
-    button type="submit" Spara
+    input.form-control type="text" name="title" placeholder="title"
+    textarea.form-control name="text" rows="6" cols="50" placeholder="kära dagbok..."
+    button class="btn btn-success"  type="submit" Spara
